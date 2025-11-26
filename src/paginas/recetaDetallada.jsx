@@ -1,32 +1,34 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function RecipeDetail() {
   const { idMeal } = useParams();
   const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    const fetchRecipe = async () => {
-      try {
-        const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
-        const data = await res.json();
-        if (!data.meals) {
-          setError("No se encontró la receta.");
-        } else {
-          setRecipe(data.meals[0]);
-        }
-      } catch {
-        setError("Error al cargar la receta.");
-      } finally {
-        setLoading(false);
+  const handleLoadRecipe = async () => {
+    setLoading(true);
+    setError("");
+    
+    try {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
+      const data = await response.json();
+      const receta = data.meals ? data.meals[0] : null;
+      
+      if (!receta) {
+        setError("No se encontró la receta.");
+      } else {
+        setRecipe(receta);
+        setError("");
       }
-    };
-
-    fetchRecipe();
-  }, [idMeal]);
+    } catch {
+      setError("Error al cargar la receta.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const renderIngredients = () => {
     return Array.from({ length: 20 })
@@ -49,6 +51,18 @@ export default function RecipeDetail() {
 
       <h2 className="text-center mb-4">Receta Completa</h2>
 
+      {!recipe && !loading && (
+        <div className="text-center my-5">
+          <p className="mb-4">Haz clic en el botón para cargar los detalles de la receta.</p>
+          <button
+            onClick={handleLoadRecipe}
+            className="btn btn-primary btn-lg"
+          >
+            Cargar Receta
+          </button>
+        </div>
+      )}
+
       {loading && (
         <div className="d-flex justify-content-center my-5">
           <div className="spinner-border text-primary" role="status">
@@ -60,6 +74,16 @@ export default function RecipeDetail() {
       {error && (
         <div className="alert alert-danger text-center">
           {error} (ID: {idMeal})
+          {!recipe && (
+            <div className="mt-3">
+              <button
+                onClick={handleLoadRecipe}
+                className="btn btn-primary"
+              >
+                Intentar de nuevo
+              </button>
+            </div>
+          )}
         </div>
       )}
 

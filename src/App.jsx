@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SearchPage from "./paginas/";
-import RecipeDetail from "./paginas/RecetaDetallada";
+import SearchPage from "./paginas/busqueda";
+import RecipeDetail from "./paginas/recetaDetallada";
 
 export default function App() {
   return (
