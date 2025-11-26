@@ -57,11 +57,11 @@ Capturas de la aplicación web
 
 Buscador Vacío 
 
-![](imagen1.jpeg)
+![](imagen2.jpeg)
 
 Buscador con un resultado
 
-![](imagen2.jpeg)
+![](imagen1.jpeg)
 
 Buscador con varios resultados
 
