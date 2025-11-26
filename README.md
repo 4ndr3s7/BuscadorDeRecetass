@@ -53,17 +53,4 @@ El proyecto abrirá automáticamente en la URL que indique Vite (por defecto: ht
 
 --- 
 
-Estructura principal del proyecto
-
-/src
-  /componentes
-    tarjetaDeReceta.jsx       # Componente que renderiza cada receta
-  busqueda.jsx             # Página principal con la lógica de búsqueda
-  recetaDetallada.jsx        # Página en la cual se ve la receta con detalles
-index.html
-vite.config.js
-package.json
-
---- 
-
 Capturas de la aplicación web
