@@ -1,16 +1,68 @@
-# React + Vite
+Trabajo Final Programación V (BUSCADOR DE RECETAS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web desarrollada con **React + Vite** que permite buscar recetas por nombre y mostrar resultados en tiempo real. Utiliza la API pública **TheMealDB** para obtener información de recetas, incluyendo nombre, categoría, área, instrucciones e imagen.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Descripción General del Proyecto
 
-## React Compiler
+El Buscador de Recetas permite al usuario:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Ingresar un término de búsqueda (ej.: `Chicken`, `Pasta`, `Cake`).
+- Visualizar una grilla de resultados con tarjetas que muestran la imagen, nombre, categoría y área de la receta.
+- Recibir mensajes informativos si no se encuentran resultados.
+- Limpiar la búsqueda para realizar nuevas consultas.
+- Visualizar un spinner mientras se realiza la búsqueda.
 
-## Expanding the ESLint configuration
+El proyecto implementa:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React + Hooks (`useState`)  
+- Bootstrap para estilos y diseño responsive  
+- Fetch API para consumir datos de TheMealDB  
+- Manejo de errores y estados de carga  
+
+---
+
+API Utilizada (TheMealDB)
+
+Nombre: TheMealDB (Versión 1)  
+Enlace: https://www.themealdb.com/api.php  
+
+Endpoint utilizado: https://www.themealdb.com/api/json/v1/1/search.php?s={TÉRMINO}
+
+Se usa para obtener las recetas basadas en el término de búsqueda ingresado por el usuario.
+
+---
+
+Instrucciones de Instalación y Ejecución
+
+1. Clonar el repositorio:
+  git clone https://github.com/4ndr3s7/BuscadorDeRecetass.git
+
+2. Entrar a la carpeta del proyecto
+  cd BuscadorDeRecetass
+
+3. Instalar dependencias
+Debes tener Node.js instalado. Ejecuta:
+  npm install
+
+4. Ejecutar la aplicación
+   npm run dev
+
+El proyecto abrirá automáticamente en la URL que indique Vite (por defecto: http://localhost:5173/).
+
+--- 
+
+Estructura principal del proyecto
+/src
+  /componentes
+    tarjetaDeReceta.jsx       # Componente que renderiza cada receta
+  busqueda.jsx             # Página principal con la lógica de búsqueda
+  recetaDetallada.jsx        # Página en la cual se ve la receta con detalles
+index.html
+vite.config.js
+package.json
+
+--- 
+
+Capturas de la aplicación web
