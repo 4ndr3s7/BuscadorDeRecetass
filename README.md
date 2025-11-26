@@ -54,3 +54,18 @@ El proyecto abrirá automáticamente en la URL que indique Vite (por defecto: ht
 --- 
 
 Capturas de la aplicación web
+
+Buscador Vacío 
+
+imagen2.jpeg
+
+Buscador con un resultado
+
+imagen1.jpeg
+
+Buscador con varios resultados
+
+imagen3.jpeg
+
+
+
